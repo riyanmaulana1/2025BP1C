@@ -215,7 +215,7 @@ public class nestedLoop {
                         break;
                     }else if(grandTotalBelanja <= 100000){
                         Diskon = grandTotalBelanja * 0.02;
-                        System.out.println("Anda mendapatkan diskon tambahan 2% sebesar Rp."+ Diskon + " karena total belanja lebih dari Rp.50.000");
+                        System.out.println("Anda mendapatkan diskon tambahan 2% sebesar Rp."+ Diskon + " karena anda memiliki member");
                         break;}
                     }else if (member == 0) {
                         System.out.println("Terima kasih telah berbelanja di warung kami.");
@@ -322,16 +322,24 @@ public class nestedLoop {
                     System.out.println("Total Diskon yang diberikan: Rp." + Diskon);
                     totalPemasukanGlobal += grandTotalBelanja;
                     System.out.println("Total Pemasukan Keseluruhan: Rp." + totalPemasukanGlobal);
+                    System.out.println("enter untuk kembali ke menu utama");
+                    input.nextLine(); // Clear the newline 
+                    input.nextLine(); // Wait for user to press Enter
                     break;
             case 4:
-                    System.out.println("Terima kasih! Sampai jumpa lagi.");
+                    System.out.println("\n========================================");
+                    System.out.println("Terima kasih. Program selesai.");
+                    System.out.println("========================================");
                     break;
                 }
+                if (pilihanMenu == 4) {
+                    break;}
             } else {
                 System.out.println("Input tidak valid. Harap masukkan angka.");
                 input.nextLine();
                 continue;
             }
         }
+        System.out.println("Program selesai. Terima kasih!");
     }
 }
