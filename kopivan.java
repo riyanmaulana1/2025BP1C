@@ -78,7 +78,7 @@ public class kopivan {
             System.out.println("AKUN anda di Blokir");
            return;
         }
-    }while (true) {
+    }while (true) { // main menu
         totalbelanjaItem = 0;
         System.out.println("\n========================================");
         System.out.println("     APLIKASI KASIR SEDERHANA");
@@ -94,7 +94,7 @@ public class kopivan {
             if (pilihanMenu >= 1 && pilihanMenu <= 4) {
                 
                 switch (pilihanMenu) {
-                    case 1:
+                    case 1: // bagian kasir
                     while(true){
                         do {
                             System.out.println("\n" + "-".repeat(16) + "MENU DEPOT KOPIVAN" + "-".repeat(16) +
@@ -114,8 +114,8 @@ public class kopivan {
                                 continue; 
                             }
                             
-                            switch (menu) {
-                                case 1:
+                            switch (menu) { 
+                                case 1: // menu pertama (nasi)
                                     System.out.print(
                                         "=".repeat(20) + "ANEKA NASI" + "=".repeat(20) +
                                         "\n"+"-".repeat(50)+
@@ -179,7 +179,7 @@ public class kopivan {
                                         break;
                                     }
                                     break;
-                                case 2:
+                                case 2: // menu ke dua (mie)
                                     System.out.print("=".repeat(20) + "ANEKA MIE" + "=".repeat(20) +
                                     "\n"+"-".repeat(50)+
                                     "\nKode"+"\tNama"+"\t\t\t  Harga"+
@@ -212,7 +212,7 @@ public class kopivan {
                                         break;
                                     }
                                     break;
-                                case 3:
+                                case 3: // menu ketiga (paket hemat)
                                     System.out.print("-".repeat(10) + "PAKET HEMAT(Rp.13.000)" + "-".repeat(10) +
                                     "\n\tFREE ES TEH ATAU NUTRISARI"+
                                     "\n"+"-".repeat(50)+
@@ -241,7 +241,7 @@ public class kopivan {
                                         break;
                                     }
                                     break;
-                                case 4:
+                                case 4: // menu ke empat (snack)
                                     System.out.print("=".repeat(20) + "ANEKA SNACK" + "=".repeat(20) +
                                     "\n"+"-".repeat(50)+
                                     "\nKode"+"\tNama"+"\t\t   Harga"+
@@ -288,7 +288,7 @@ public class kopivan {
                                         break;
                                     }
                                     break;
-                                case 5:
+                                case 5: // menu kelima (minuman)
                                     System.out.print("=".repeat(20) + "ANEKA MINUMAN" + "=".repeat(20) +
                                     "\n"+"-".repeat(50)+
                                     "\nKode"+"\tNama"+"\t\t\tHarga"+
@@ -351,7 +351,7 @@ public class kopivan {
                                     }
                                     break;
 
-                                default:
+                                default: // penanganan apabila input lebih dari 5 atau negatif
                                     System.out.println("Nomor menu tidak valid.");
                                     ulangi = 1;
                                     System.out.print("Apakah ingin memesan lagi? (0: Tidak, 1: Ya): ");
