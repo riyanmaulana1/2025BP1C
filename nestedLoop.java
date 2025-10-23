@@ -196,6 +196,8 @@ public class nestedLoop {
                             }
                             
                         } while (ulangi == 1);
+
+                        // Perbaikan: grandTotalBelanja hanya ditambah totalbelanjaItem satu kali per transaksi
                         grandTotalBelanja += totalbelanjaItem;
                         
                         while (true) {
@@ -224,17 +226,28 @@ public class nestedLoop {
                             }
                         }
                         System.out.println("\n" + "=".repeat(15) + "TOTAL PEMBAYARAN" + "=".repeat(15));
-                        grandDiskon += Diskon;
                         double grandTotal = grandTotalBelanja - Diskon;
-                        totalPemasukanGlobal += grandTotal;
                         
                         System.out.println("Total Biaya Item Awal : Rp."+ grandTotalBelanja);
+                        grandTotalBelanja =0;
+                        totalbelanjaItem =0;
                         System.out.println("Total Diskon: Rp."+ Diskon);
                         System.out.println("TOTAL YANG HARUS DIBAYAR: Rp."+ grandTotal);
                         System.out.println("=".repeat(46));
                         System.out.println("Terima kasih atas kunjungan Anda!");
-                        grandTotalBelanja =0;
-                        totalbelanjaItem =0;
+                        System.out.print("Masukkan jumlah uang pembayaran: Rp.");
+                        double pembayaran = input.nextDouble();
+                        if (pembayaran >= grandTotal) {
+                            double kembalian = pembayaran - grandTotal;
+                            System.out.println("Kembalian: Rp." + kembalian);
+                        } else {
+                            System.out.println("Uang pembayaran kurang Rp." + (grandTotal - pembayaran));
+                            System.out.println("Transaksi dibatalkan.");
+                            grandTotalBelanja =0;
+                            Diskon =0;
+                        }
+                        totalPemasukanGlobal += grandTotal;
+                        grandDiskon += Diskon;
                         System.out.print("Kembali ke menu utama? (1: Ya, 0: Tidak): ");
                         int kembali = input.nextInt();
                         if (kembali == 1) {
@@ -322,8 +335,8 @@ public class nestedLoop {
                     System.out.println("Total Diskon yang diberikan: Rp." + grandDiskon);
                     System.out.println("Total Pemasukan Keseluruhan: Rp." + totalPemasukanGlobal);
                     System.out.println("enter untuk kembali ke menu utama");
-                    input.nextLine();
-                    input.nextLine(); //user enter
+                    input.nextLine(); // Clear the newline 
+                    input.nextLine(); // Wait for user to press Enter
                     break;
             case 4:
                     System.out.println("\n========================================");
