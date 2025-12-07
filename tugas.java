@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class tugas {
+public class main {
         static Scanner input = new Scanner(System.in);
         static LocalDateTime now = LocalDateTime.now();
         private static final String Product = "Product.txt";
@@ -164,6 +164,18 @@ private static void displayProduct(){
         }
         System.out.println(" "+"-".repeat(100));
 }
+        //eksperimen display product dengan parameter
+private static void displayProduct(List<String[]> data_menu ){
+        int nomor = 1;
+        System.out.println(" "+"-".repeat(100));
+        System.out.println("| NO |"+" ".repeat(5)+"JENIS"+" ".repeat(5)+"|"+" ".repeat(18)+"NAMA"+" ".repeat(18)+"|"+" ".repeat(9)+"HARGA"+" ".repeat(10)+"|"+" ".repeat(4)+"STOK"+" ".repeat(5)+"|");
+        System.out.println("|"+"----+"+"-".repeat(15)+"+"+"-".repeat(40)+"+"+"-".repeat(24)+"+"+"-".repeat(13)+"|");
+        for (String[] item : data_menu) {
+                System.out.printf("| %-2d | %-13s | %-38s | Rp.%-19s | %-11s |\n", nomor, item[0], item[1], item[2], item[3]);
+                nomor++;
+        }
+        System.out.println(" "+"-".repeat(100));
+}
 
 //log in
 private static boolean login(String role){
@@ -181,7 +193,7 @@ private static boolean login(String role){
         int attemp = 1;
         // loop validasi PIN
         while (true) {
-                System.out.println("Mohon masukkan PIN anda:");
+                System.out.printf("Mohon masukkan PIN %s:\n",role);
                 int pin_input = input.nextInt();
                 if (pin_input == pin) {
                         System.out.println("PIN benar, akses diberikan.");
@@ -207,6 +219,7 @@ public static void kasir_console() {
         System.out.println(salamWaktu()+" kasir");
         List<String[]> data_menu = read(Product);
         data_menu = selectionSort(data_menu); 
+        displayProduct(data_menu);
 
 }
 
@@ -227,10 +240,10 @@ private static void addConsole(){
                                 "\n4. Snack"+
                                 "\n5. Minuman\n"+
                                 "-".repeat(51));
-        System.out.print("masukkan jenis menu: ");
+        System.out.print("masukkan jenis menu(0.batal): ");
         int user_chose = input.nextInt();
         String jenis_menu;
-        while (user_chose < 1 || user_chose > 5) {
+        while (user_chose < 0 || user_chose > 5) {
                 System.out.println("mohon masukkan sesuai opsi yang tersedia");
                 System.out.print("masukkan jenis menu: ");
                 user_chose = input.nextInt();
@@ -241,9 +254,13 @@ private static void addConsole(){
                 case 3 -> jenis_menu = "Paket_Hemat";
                 case 4 -> jenis_menu = "Snack";
                 case 5 -> jenis_menu = "Minuman";
+                case 0 -> {
+                        System.out.println("keluar dari menu utama");
+                        return;
+                }
                 default -> {
                         System.out.println("mohon masukkan sesuai opsi yang tersedia");
-                        return;
+                        continue;
                 }
         }input.nextLine();
         System.out.print("masukkan nama menu : ");
@@ -294,10 +311,16 @@ private static void updateConsole(){
                         continue;
                 }boolean isDone = true;
                 while(isDone){
-                System.out.printf("PIlih data yang ingin diubah:\n1. Jenis\t:%s \n2. Nama\t\t:%s\n3. Harga\t:%s\n4. Stok\t\t:%s\n", data_menu[0], data_menu[1], data_menu[2], data_menu[3]);
+                System.out.printf("""
+                        PIlih data yang ingin diubah:\n
+                        1. Jenis\t:%s \n
+                        2. Nama\t\t:%s\n
+                        3. Harga\t:%s\n
+                        4. Stok\t\t:%s\n
+                        """, data_menu[0], data_menu[1], data_menu[2], data_menu[3]);
                 System.out.print("Masukkan pilihan: ");
                 int user_option = input.nextInt();
-                input.nextLine(); // Clear newline
+                input.nextLine();
                 switch (user_option) {
                         case 1 -> {
                                 System.out.print("Masukkan jenis baru:\n\t1. Nasi\n\t2. Mie\n\t3. Paket Hemat\n\t4. Snack\n\t5. Minuman\nPilihan: ");
