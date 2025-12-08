@@ -1,0 +1,26 @@
+Mie,Mie Kluntung,15000
+Mie,Mie Goreng Jawa,15000
+Mie,Indomie Telur Ceplok,9000
+Mie,Indomie Biasa,7000
+Mie,Indomie Ayam Geprek,15000
+Mie,Mie Goreng Kopivan,12000
+Minuman,Kopi Hitam,4000
+Minuman,Kopi Susu,5000
+Minuman,Cappucino,5000
+Nasi,Nasi Goreng Merah,12000
+Nasi,Nasi Goreng Sosis,14000
+Nasi,Nasi Goreng Gila,15000
+Nasi,Nasi Goreng Jawa,15000
+Nasi,Nasi Pecel Biasa,10000
+Nasi,Nasi Pecel Ayam,15000
+Nasi,Nasi Pecel Telur,13000
+Nasi,Nasi Goreng Kopivan,12000
+Paket_Hemat,4T,13000
+Paket_Hemat,Geprek,13000
+Paket_Hemat,Penyet,13000
+Paket_Hemat,Nasi Campur,13000
+Snack,Sosis Goreng,7000
+Snack,SISTAGOR,9000
+Snack,Kentang Goreng,8000
+Snack,Pok-Pok My Chrispy,10000
+Snack,Nugget Goreng,7000
